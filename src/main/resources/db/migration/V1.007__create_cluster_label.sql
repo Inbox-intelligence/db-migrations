@@ -1,4 +1,4 @@
-CREATE TABLE cluster_label (
+CREATE TABLE cluster_label_map (
 
     id BIGSERIAL PRIMARY KEY,
 
@@ -26,7 +26,7 @@ CREATE TABLE cluster_label (
 );
 
 CREATE INDEX idx_cluster_label_cluster
-    ON cluster_label (fk_cluster_id);
+    ON cluster_label_map (fk_cluster_id);
 
 CREATE INDEX idx_cluster_label_label
-    ON cluster_label (fk_label_id);
+    ON cluster_label_map (fk_label_id);
