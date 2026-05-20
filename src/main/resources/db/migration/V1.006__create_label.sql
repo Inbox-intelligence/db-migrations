@@ -6,12 +6,9 @@ CREATE TABLE label (
 
     display_name VARCHAR(255) NOT NULL,
     full_name VARCHAR(1024) NOT NULL,
-    source VARCHAR(16) NOT NULL,
     description TEXT,
 
     reference_embedding vector(768),
-
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
 
     -- audit
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -28,12 +25,6 @@ CREATE TABLE label (
 
 CREATE INDEX idx_label_mailbox
     ON label (fk_gmail_mailbox_id);
-
-CREATE INDEX idx_label_source
-    ON label (source);
-
-CREATE INDEX idx_label_active
-    ON label (is_active);
 
 CREATE INDEX idx_label_reference_embedding
     ON label
