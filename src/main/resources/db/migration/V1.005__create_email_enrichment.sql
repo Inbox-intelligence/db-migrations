@@ -2,7 +2,7 @@ CREATE TABLE email_enrichments (
     id BIGSERIAL PRIMARY KEY,
     fk_gmail_mailbox_id BIGINT NOT NULL,
     fk_email_content_id BIGINT NOT NULL,
-    normalized_content VARCHAR(1000),
+    normalized_content VARCHAR(5000),
     embedding vector(768),
     fk_cluster_id BIGINT,
     cluster_probability DOUBLE PRECISION,
