@@ -3,7 +3,7 @@ CREATE TABLE cluster (
     fk_gmail_mailbox_id BIGINT NOT NULL,
     cluster_index INT NOT NULL,
     email_count INT NOT NULL,
-    centroid vector(768) NOT NULL,
+    centroid vector(1024) NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 

@@ -3,7 +3,7 @@ CREATE TABLE label (
     fk_gmail_mailbox_id BIGINT NOT NULL,
     display_name VARCHAR(255) NOT NULL,
     full_name VARCHAR(1024) NOT NULL,
-    reference_embedding vector(768),
+    reference_embedding vector(1024),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 
