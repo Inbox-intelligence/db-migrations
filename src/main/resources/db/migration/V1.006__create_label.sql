@@ -3,6 +3,7 @@ CREATE TABLE label (
     fk_gmail_mailbox_id BIGINT NOT NULL,
     display_name VARCHAR(255) NOT NULL,
     full_name VARCHAR(1024) NOT NULL,
+    gmail_label_id VARCHAR(128),
     reference_embedding vector(1024),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -18,6 +19,10 @@ CREATE TABLE label (
 
 CREATE INDEX idx_label_mailbox
 ON label(fk_gmail_mailbox_id);
+
+CREATE UNIQUE INDEX idx_label_mailbox_gmail_id
+ON label(fk_gmail_mailbox_id, gmail_label_id)
+WHERE gmail_label_id IS NOT NULL;
 
 CREATE INDEX idx_label_reference_embedding
 ON label
